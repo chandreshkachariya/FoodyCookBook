@@ -140,7 +140,7 @@ extension SearchVC {
         HttpClientApi.instance().callAPI(url: _api_search, params: params, showLoading: showLoading,  methods: .GET, success: { (data) in
             //po (data as! [String : Any])["user_data"]
             
-            self.arrMeals = (data as! [String : Any])["meals"] as! NSArray
+            self.arrMeals = (data as! [String : Any])["meals"] as? NSArray ?? NSArray()
             self.tblSearchList.reloadData()
                         
         }) { (fail) in
